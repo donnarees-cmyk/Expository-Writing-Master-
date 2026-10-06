@@ -1,0 +1,1103 @@
+<!DOCTYPE html>
+<html lang="en" class="h-full bg-slate-950 text-slate-100">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Florida B.E.S.T. 6th Grade ELA Standards Sprints & Expository Lab</title>
+  
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  
+  <!-- Font Awesome Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  
+  <!-- Google Fonts: Inter & Outfit -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@500;600;700;800&display=swap" rel="stylesheet">
+  
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['Inter', 'sans-serif'],
+            display: ['Outfit', 'sans-serif']
+          },
+          colors: {
+            brand: {
+              50: '#f0f9ff',
+              100: '#e0f2fe',
+              500: '#0284c7',
+              600: '#0369a1',
+              700: '#035485',
+              800: '#075985',
+              900: '#0c4a6e'
+            },
+            sunshine: {
+              400: '#facc15',
+              500: '#eab308'
+            }
+          }
+        }
+      }
+    }
+  </script>
+  
+  <style>
+    .glass-card {
+      background: rgba(30, 41, 59, 0.7);
+      backdrop-filter: blur(12px);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+    }
+    .glass-card-bright {
+      background: rgba(15, 23, 42, 0.85);
+      backdrop-filter: blur(16px);
+      border: 1px solid rgba(56, 189, 248, 0.25);
+    }
+    .pulse-glow {
+      box-shadow: 0 0 20px rgba(14, 165, 233, 0.4);
+    }
+    @keyframes timerPulse {
+      0%, 100% { transform: scale(1); }
+      50% { transform: scale(1.05); }
+    }
+    .timer-active {
+      animation: timerPulse 1s infinite;
+    }
+  </style>
+</head>
+<body class="h-full font-sans antialiased bg-slate-950 text-slate-100 flex flex-col selection:bg-sky-500 selection:text-white">
+
+  <!-- TOP HEADER & PROGRESS DASHBOARD -->
+  <header class="sticky top-0 z-50 glass-card border-b border-slate-800 px-4 py-3 shadow-xl">
+    <div class="max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between gap-4">
+      <div class="flex items-center space-x-3">
+        <div class="w-10 h-10 rounded-xl bg-gradient-to-tr from-sky-500 to-amber-400 flex items-center justify-center text-slate-950 font-black text-xl shadow-lg">
+          FL
+        </div>
+        <div>
+          <h1 class="font-display text-lg md:text-xl font-bold bg-gradient-to-r from-sky-400 via-teal-300 to-amber-300 bg-clip-text text-transparent">
+            FL B.E.S.T. 6th Grade ELA Master
+          </h1>
+          <p class="text-xs text-slate-400">Targeted Benchmark & FAST Assessment Training</p>
+        </div>
+      </div>
+
+      <!-- Gamification Stats Header -->
+      <div class="flex items-center gap-4 bg-slate-900/80 px-4 py-2 rounded-2xl border border-slate-800">
+        <!-- Level & XP -->
+        <div class="flex items-center gap-2">
+          <i class="fa-solid fa-bolt text-amber-400 text-lg"></i>
+          <div>
+            <div class="text-xs text-slate-400 font-semibold">XP POINTS</div>
+            <div class="text-sm font-bold text-amber-300"><span id="user-xp">0</span> XP</div>
+          </div>
+        </div>
+        
+        <div class="h-8 w-[1px] bg-slate-800"></div>
+
+        <!-- Level Badge -->
+        <div class="flex items-center gap-2">
+          <i class="fa-solid fa-graduation-cap text-sky-400 text-lg"></i>
+          <div>
+            <div class="text-xs text-slate-400 font-semibold">LEVEL</div>
+            <div class="text-sm font-bold text-sky-300" id="user-level">Lvl 1 Rookie</div>
+          </div>
+        </div>
+
+        <div class="h-8 w-[1px] bg-slate-800"></div>
+
+        <!-- Badges Earned -->
+        <div class="flex items-center gap-2">
+          <i class="fa-solid fa-award text-emerald-400 text-lg"></i>
+          <div>
+            <div class="text-xs text-slate-400 font-semibold">BADGES</div>
+            <div class="text-sm font-bold text-emerald-300"><span id="badges-count">0</span> / 6</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- MAIN CONTAINER -->
+  <main class="flex-1 max-w-7xl w-full mx-auto p-4 md:p-6 space-y-8">
+
+    <!-- ==================== TOP FEATURE: FLORIDA STANDARDS SPRINTS ==================== -->
+    <section id="sprints-container" class="glass-card-bright rounded-3xl p-6 relative overflow-hidden shadow-2xl border border-sky-500/30">
+      <div class="absolute -right-12 -top-12 w-48 h-48 bg-sky-500/10 rounded-full blur-3xl pointer-events-none"></div>
+      
+      <!-- Section Header -->
+      <div class="flex flex-col lg:flex-row items-start lg:items-center justify-between gap-4 mb-6 pb-4 border-b border-slate-800">
+        <div>
+          <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-sky-500/10 border border-sky-400/20 text-sky-300 text-xs font-bold uppercase tracking-wider mb-2">
+            <i class="fa-solid fa-stopwatch animate-pulse"></i> FAST Warm-Up Engine
+          </div>
+          <h2 class="font-display text-2xl md:text-3xl font-extrabold text-white flex items-center gap-3">
+            Florida Standards Sprints
+          </h2>
+          <p class="text-sm text-slate-300 mt-1">
+            60-second high-speed interactive drills directly mapped to Florida B.E.S.T. ELA Benchmarks.
+          </p>
+        </div>
+
+        <!-- Sprint Stats Header -->
+        <div class="flex items-center gap-3 bg-slate-900/90 px-4 py-2 rounded-2xl border border-slate-700 w-full lg:w-auto justify-between lg:justify-end">
+          <div class="text-center px-2">
+            <div class="text-xs text-slate-400">HIGHEST SCORE</div>
+            <div class="text-lg font-black text-amber-400" id="sprint-high-score">0</div>
+          </div>
+          <div class="h-8 w-[1px] bg-slate-800"></div>
+          <div class="text-center px-2">
+            <div class="text-xs text-slate-400">STREAK</div>
+            <div class="text-lg font-black text-rose-400" id="sprint-streak">0 🔥</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- SPRINT SELECTOR TABS -->
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-3 mb-6" id="sprint-tabs">
+        <button onclick="selectSprint('A')" id="sprint-tab-A" class="p-4 rounded-2xl border border-sky-500/40 bg-sky-950/40 hover:bg-sky-900/40 transition text-left relative overflow-hidden group active">
+          <div class="flex items-center justify-between mb-1">
+            <span class="text-xs font-bold px-2 py-0.5 rounded bg-sky-500/20 text-sky-300 border border-sky-400/30">ELA.6.C.1.4</span>
+            <i class="fa-solid fa-quote-left text-sky-400 group-hover:scale-110 transition-transform"></i>
+          </div>
+          <div class="font-bold text-slate-100 text-base">Sprint A: Citation Lead-Ins</div>
+          <div class="text-xs text-slate-400 mt-1">Spot floating quotes vs properly introduced evidence.</div>
+        </button>
+
+        <button onclick="selectSprint('B')" id="sprint-tab-B" class="p-4 rounded-2xl border border-slate-800 bg-slate-900/50 hover:bg-slate-800/60 transition text-left relative overflow-hidden group">
+          <div class="flex items-center justify-between mb-1">
+            <span class="text-xs font-bold px-2 py-0.5 rounded bg-amber-500/20 text-amber-300 border border-amber-400/30">ELA.6.C.3.1</span>
+            <i class="fa-solid fa-wand-magic-sparkles text-amber-400 group-hover:scale-110 transition-transform"></i>
+          </div>
+          <div class="font-bold text-slate-100 text-base">Sprint B: Academic Tone</div>
+          <div class="text-xs text-slate-400 mt-1">Fix informal "you/I" phrases and weak transitions.</div>
+        </button>
+
+        <button onclick="selectSprint('C')" id="sprint-tab-C" class="p-4 rounded-2xl border border-slate-800 bg-slate-900/50 hover:bg-slate-800/60 transition text-left relative overflow-hidden group">
+          <div class="flex items-center justify-between mb-1">
+            <span class="text-xs font-bold px-2 py-0.5 rounded bg-emerald-500/20 text-emerald-300 border border-emerald-400/30">ELA.6.V.1.1</span>
+            <i class="fa-solid fa-seedling text-emerald-400 group-hover:scale-110 transition-transform"></i>
+          </div>
+          <div class="font-bold text-slate-100 text-base">Sprint C: Roots & Clues</div>
+          <div class="text-xs text-slate-400 mt-1">Master bio, chron, spec, aqua, graph context clues.</div>
+        </button>
+      </div>
+
+      <!-- SPRINT GAMEPLAY ARENA -->
+      <div id="sprint-arena" class="bg-slate-900/90 rounded-2xl border border-slate-800 p-6 min-h-[300px] flex flex-col justify-between relative">
+        
+        <!-- Pre-Start Screen -->
+        <div id="sprint-start-screen" class="flex flex-col items-center justify-center py-8 text-center">
+          <div class="w-16 h-16 rounded-2xl bg-sky-500/10 border border-sky-400/30 flex items-center justify-center text-sky-400 text-3xl mb-4">
+            <i class="fa-solid fa-gauge-high"></i>
+          </div>
+          <h3 class="text-2xl font-bold text-white mb-2" id="sprint-title-display">Sprint A: Citation Lead-Ins</h3>
+          <p class="text-sm text-slate-300 max-w-lg mb-6" id="sprint-desc-display">
+            You will have 60 seconds to evaluate as many benchmark sentences as possible. Gain +10 XP per correct answer!
+          </p>
+          <button onclick="startSprint()" class="px-8 py-3.5 bg-gradient-to-r from-sky-500 to-blue-600 hover:from-sky-400 hover:to-blue-500 text-white font-bold rounded-2xl shadow-lg shadow-sky-500/25 transition transform active:scale-95 flex items-center gap-3">
+            <i class="fa-solid fa-play"></i> Start 60-Second Sprint
+          </button>
+        </div>
+
+        <!-- Active Game Screen -->
+        <div id="sprint-active-screen" class="hidden flex-col justify-between space-y-6">
+          <!-- Timer and Score Bar -->
+          <div class="flex items-center justify-between bg-slate-950 p-4 rounded-xl border border-slate-800">
+            <div class="flex items-center gap-3">
+              <span class="text-xs text-slate-400 font-bold uppercase">Time Remaining</span>
+              <div id="sprint-timer" class="text-2xl font-black text-amber-400 font-mono bg-amber-500/10 px-3 py-1 rounded-lg border border-amber-500/20">60s</div>
+            </div>
+            <div class="flex items-center gap-6">
+              <div>
+                <span class="text-xs text-slate-400 block text-right">Sprint Points</span>
+                <span id="sprint-score" class="text-2xl font-black text-sky-400 font-mono">0</span>
+              </div>
+              <div>
+                <span class="text-xs text-slate-400 block text-right">Correct</span>
+                <span id="sprint-correct-count" class="text-2xl font-black text-emerald-400 font-mono">0</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Question Display Box -->
+          <div class="bg-slate-950/80 p-6 rounded-2xl border border-slate-800 text-center flex-1 flex flex-col justify-center items-center">
+            <div class="text-xs text-sky-400 font-bold uppercase mb-2" id="sprint-q-category">Identify Citation Standard</div>
+            <div class="text-lg md:text-xl font-medium text-slate-100 max-w-2xl leading-relaxed" id="sprint-question-text">
+              Loading prompt...
+            </div>
+          </div>
+
+          <!-- Answer Options Box -->
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-4" id="sprint-options-box">
+            <!-- Dynamic option buttons injected here -->
+          </div>
+        </div>
+
+        <!-- Post-Sprint Summary Screen -->
+        <div id="sprint-result-screen" class="hidden flex-col items-center justify-center py-6 text-center">
+          <div class="w-16 h-16 rounded-full bg-amber-500/20 border border-amber-400 flex items-center justify-center text-amber-400 text-3xl mb-3">
+            <i class="fa-solid fa-trophy"></i>
+          </div>
+          <h3 class="text-2xl font-bold text-white mb-1">Sprint Completed!</h3>
+          <p class="text-sm text-slate-400 mb-4">Great practice for your FAST ELA Benchmark assessment.</p>
+
+          <div class="grid grid-cols-3 gap-4 w-full max-w-md bg-slate-950 p-4 rounded-2xl border border-slate-800 mb-6">
+            <div>
+              <div class="text-xs text-slate-400">Total Points</div>
+              <div id="res-score" class="text-xl font-bold text-sky-400">0</div>
+            </div>
+            <div>
+              <div class="text-xs text-slate-400">Correct Answers</div>
+              <div id="res-correct" class="text-xl font-bold text-emerald-400">0</div>
+            </div>
+            <div>
+              <div class="text-xs text-slate-400">XP Earned</div>
+              <div id="res-xp" class="text-xl font-bold text-amber-400">+0 XP</div>
+            </div>
+          </div>
+
+          <div class="flex gap-4">
+            <button onclick="resetSprintScreen()" class="px-6 py-2.5 bg-slate-800 hover:bg-slate-700 text-slate-200 font-semibold rounded-xl transition">
+              Choose Another Sprint
+            </button>
+            <button onclick="startSprint()" class="px-6 py-2.5 bg-sky-600 hover:bg-sky-500 text-white font-bold rounded-xl transition shadow-lg shadow-sky-600/30">
+              Try Again
+            </button>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ==================== COACH ALEX & MENTORSHIP ==================== -->
+    <section class="glass-card rounded-3xl p-6 border border-slate-800 flex flex-col md:flex-row items-center gap-6">
+      <div class="w-20 h-20 rounded-2xl bg-gradient-to-tr from-amber-500 to-orange-500 flex items-center justify-center text-slate-950 text-4xl font-black shrink-0 shadow-lg">
+        <i class="fa-solid fa-robot"></i>
+      </div>
+      <div class="space-y-2 text-center md:text-left flex-1">
+        <div class="flex items-center justify-center md:justify-start gap-2">
+          <h3 class="text-xl font-bold text-white">Coach Alex's FAST Expository Playbook</h3>
+          <span class="px-2.5 py-0.5 rounded-full bg-emerald-500/10 text-emerald-400 text-xs font-semibold border border-emerald-500/20">Online</span>
+        </div>
+        <p class="text-sm text-slate-300">
+          "Expository writing in 6th grade isn't about giving your personal opinion. It's about taking <span class="text-sky-300 font-semibold">2 source texts</span>, pulling evidence, explaining <span class="text-amber-300 font-semibold">HOW and WHY</span> it matters, and maintaining a formal academic tone. Let's master the modules below!"
+        </p>
+      </div>
+      <!-- Badges Shelf -->
+      <div class="flex items-center gap-2 bg-slate-950 p-3 rounded-2xl border border-slate-800 shrink-0">
+        <div id="badge-1" title="Sprint Champion" class="w-10 h-10 rounded-xl bg-slate-800/80 border border-slate-700 flex items-center justify-center text-slate-600 transition"><i class="fa-solid fa-bolt"></i></div>
+        <div id="badge-2" title="Master Classifier" class="w-10 h-10 rounded-xl bg-slate-800/80 border border-slate-700 flex items-center justify-center text-slate-600 transition"><i class="fa-solid fa-filter"></i></div>
+        <div id="badge-3" title="Burger Architect" class="w-10 h-10 rounded-xl bg-slate-800/80 border border-slate-700 flex items-center justify-center text-slate-600 transition"><i class="fa-solid fa-layer-group"></i></div>
+        <div id="badge-4" title="Quote Ninja" class="w-10 h-10 rounded-xl bg-slate-800/80 border border-slate-700 flex items-center justify-center text-slate-600 transition"><i class="fa-solid fa-quote-right"></i></div>
+        <div id="badge-5" title="Tone Master" class="w-10 h-10 rounded-xl bg-slate-800/80 border border-slate-700 flex items-center justify-center text-slate-600 transition"><i class="fa-solid fa-user-shield"></i></div>
+        <div id="badge-6" title="FAST ELA Essayist" class="w-10 h-10 rounded-xl bg-slate-800/80 border border-slate-700 flex items-center justify-center text-slate-600 transition"><i class="fa-solid fa-pen-nib"></i></div>
+      </div>
+    </section>
+
+    <!-- ==================== MODULE 1: WHAT IS EXPOSITORY WRITING? ==================== -->
+    <section class="glass-card rounded-3xl p-6 border border-slate-800">
+      <div class="mb-6">
+        <span class="text-xs font-bold text-sky-400 tracking-wider uppercase">Module 1</span>
+        <h3 class="text-2xl font-bold text-white">What is Expository Writing? (ELA.6.R.2.2)</h3>
+        <p class="text-sm text-slate-300">Expository writing explains, informs, or describes using factual evidence from texts.</p>
+      </div>
+
+      <div class="bg-slate-950 p-6 rounded-2xl border border-slate-800">
+        <h4 class="font-bold text-slate-200 mb-4 flex items-center gap-2">
+          <i class="fa-solid fa-gamepad text-amber-400"></i> Interactive Challenge: "Is It Expository?"
+        </h4>
+        <p class="text-xs text-slate-400 mb-4">Read each prompt and choose whether it requires an Expository essay or an Argumentative/Persuasive essay.</p>
+        
+        <div id="m1-prompt-box" class="bg-slate-900 p-4 rounded-xl border border-slate-800 text-slate-200 font-medium mb-4">
+          Loading prompt...
+        </div>
+
+        <div class="flex flex-col sm:flex-row gap-3">
+          <button onclick="checkM1Answer('expository')" class="flex-1 py-3 bg-sky-600/20 hover:bg-sky-600/30 border border-sky-500/40 text-sky-300 font-bold rounded-xl transition flex items-center justify-center gap-2">
+            <i class="fa-solid fa-book-open"></i> Expository (Inform/Explain)
+          </button>
+          <button onclick="checkM1Answer('argumentative')" class="flex-1 py-3 bg-rose-600/20 hover:bg-rose-600/30 border border-rose-500/40 text-rose-300 font-bold rounded-xl transition flex items-center justify-center gap-2">
+            <i class="fa-solid fa-comments"></i> Argumentative (Convince/Persuade)
+          </button>
+        </div>
+        <div id="m1-feedback" class="mt-4 text-sm font-semibold hidden p-3 rounded-xl"></div>
+      </div>
+    </section>
+
+    <!-- ==================== MODULE 2: SECRET RECIPE / SANDWICH FORMULA ==================== -->
+    <section class="glass-card rounded-3xl p-6 border border-slate-800">
+      <div class="mb-6">
+        <span class="text-xs font-bold text-sky-400 tracking-wider uppercase">Module 2</span>
+        <h3 class="text-2xl font-bold text-white">The Secret Recipe: Expository Paragraph Sandwich</h3>
+        <p class="text-sm text-slate-300">Master the 6 key building blocks of a high-scoring 6th Grade FAST ELA essay.</p>
+      </div>
+
+      <!-- Sandwich Graphic & Interactive Identifier -->
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
+        <!-- Interactive Drag/Click Builder -->
+        <div class="bg-slate-950 p-6 rounded-2xl border border-slate-800 space-y-3">
+          <h4 class="font-bold text-slate-200 mb-2">Identify the Essay Element:</h4>
+          <div id="m2-sample-text" class="p-4 bg-slate-900 rounded-xl border border-slate-800 text-sm text-slate-200 italic leading-relaxed">
+            "According to Source 1, Florida springs release over 8 billion gallons of freshwater daily into rivers and estuaries."
+          </div>
+          <div class="grid grid-cols-2 gap-2" id="m2-buttons-grid">
+            <button onclick="checkM2Element('Hook')" class="p-2.5 bg-slate-900 border border-slate-700 hover:border-sky-400 rounded-xl text-xs font-bold text-slate-300">Hook</button>
+            <button onclick="checkM2Element('Bridge')" class="p-2.5 bg-slate-900 border border-slate-700 hover:border-sky-400 rounded-xl text-xs font-bold text-slate-300">Bridge / Context</button>
+            <button onclick="checkM2Element('Thesis')" class="p-2.5 bg-slate-900 border border-slate-700 hover:border-sky-400 rounded-xl text-xs font-bold text-slate-300">Thesis Statement</button>
+            <button onclick="checkM2Element('Evidence')" class="p-2.5 bg-slate-900 border border-slate-700 hover:border-sky-400 rounded-xl text-xs font-bold text-slate-300">Text Evidence</button>
+            <button onclick="checkM2Element('Elaboration')" class="p-2.5 bg-slate-900 border border-slate-700 hover:border-sky-400 rounded-xl text-xs font-bold text-slate-300">Elaboration / Explanation</button>
+            <button onclick="checkM2Element('Conclusion')" class="p-2.5 bg-slate-900 border border-slate-700 hover:border-sky-400 rounded-xl text-xs font-bold text-slate-300">Concluding Thought</button>
+          </div>
+          <div id="m2-feedback" class="mt-3 text-xs font-semibold p-2.5 rounded-xl hidden"></div>
+        </div>
+
+        <!-- Recipe Visual Breakdown -->
+        <div class="space-y-2 text-xs">
+          <div class="p-3 bg-amber-500/10 border border-amber-500/30 rounded-xl flex items-center justify-between">
+            <span class="font-bold text-amber-300">1. Top Bun: Topic Sentence / Thesis</span>
+            <span class="text-slate-400">States main point clearly</span>
+          </div>
+          <div class="p-3 bg-sky-500/10 border border-sky-500/30 rounded-xl flex items-center justify-between">
+            <span class="font-bold text-sky-300">2. Lead-In Tag: Citation Setup</span>
+            <span class="text-slate-400">"According to..." / "The author notes..."</span>
+          </div>
+          <div class="p-3 bg-emerald-500/10 border border-emerald-500/30 rounded-xl flex items-center justify-between">
+            <span class="font-bold text-emerald-300">3. Quote / Evidence</span>
+            <span class="text-slate-400">Exact words inside " quotes "</span>
+          </div>
+          <div class="p-3 bg-indigo-500/10 border border-indigo-500/30 rounded-xl flex items-center justify-between">
+            <span class="font-bold text-indigo-300">4. Elaboration / HOW & WHY</span>
+            <span class="text-slate-400">"This demonstrates that..."</span>
+          </div>
+          <div class="p-3 bg-amber-500/10 border border-amber-500/30 rounded-xl flex items-center justify-between">
+            <span class="font-bold text-amber-300">5. Bottom Bun: Wrap-Up Sentence</span>
+            <span class="text-slate-400">Ties evidence back to thesis</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==================== MODULE 3: QUOTE NINJA LAB ==================== -->
+    <section class="glass-card rounded-3xl p-6 border border-slate-800">
+      <div class="mb-6">
+        <span class="text-xs font-bold text-sky-400 tracking-wider uppercase">Module 3</span>
+        <h3 class="text-2xl font-bold text-white">Quote Ninja Lab (ELA.6.C.1.4)</h3>
+        <p class="text-sm text-slate-300">Fix floating quotes and master proper lead-in tags & punctuation.</p>
+      </div>
+
+      <div class="bg-slate-950 p-6 rounded-2xl border border-slate-800 space-y-4">
+        <div class="bg-rose-500/10 border border-rose-500/30 p-3 rounded-xl text-xs text-rose-300">
+          <i class="fa-solid fa-triangle-exclamation mr-1"></i> <strong>FLOATING QUOTE WARNING:</strong> Never drop a quote into an essay by itself without an introductory tag!
+        </div>
+
+        <div class="space-y-2">
+          <label class="block text-xs font-bold text-slate-300 uppercase">Select Proper Lead-In Tag:</label>
+          <select id="ninja-leadin" class="w-full bg-slate-900 border border-slate-700 text-slate-200 rounded-xl p-3 text-sm focus:border-sky-400 outline-none">
+            <option value="">-- Choose a formal lead-in tag --</option>
+            <option value="According to Source 1,">According to Source 1,</option>
+            <option value="As explained in the passage,">As explained in the passage,</option>
+            <option value="The text emphasizes that">The text emphasizes that</option>
+            <option value="In addition, the author highlights that">In addition, the author highlights that</option>
+          </select>
+        </div>
+
+        <div class="space-y-2">
+          <label class="block text-xs font-bold text-slate-300 uppercase">Selected Raw Evidence:</label>
+          <div class="p-3 bg-slate-900 rounded-xl border border-slate-800 text-sm text-slate-300">
+            aquifers store water in underground limestone layers like a giant natural sponge
+          </div>
+        </div>
+
+        <button onclick="testQuoteNinja()" class="w-full py-3 bg-emerald-600 hover:bg-emerald-500 text-white font-bold rounded-xl transition shadow-lg shadow-emerald-600/20 flex items-center justify-center gap-2">
+          <i class="fa-solid fa-wand-magic-sparkles"></i> Assemble Integrated Citation
+        </button>
+
+        <div id="ninja-result" class="hidden p-4 bg-slate-900 border border-emerald-500/40 rounded-xl">
+          <div class="text-xs text-emerald-400 font-bold uppercase mb-1">Integrated Citation Preview:</div>
+          <p id="ninja-result-text" class="text-slate-100 font-mono text-sm"></p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==================== MODULE 4: WORD TRANSFORMER ==================== -->
+    <section class="glass-card rounded-3xl p-6 border border-slate-800">
+      <div class="mb-6">
+        <span class="text-xs font-bold text-sky-400 tracking-wider uppercase">Module 4</span>
+        <h3 class="text-2xl font-bold text-white">Word Transformer Lab (ELA.6.C.3.1)</h3>
+        <p class="text-sm text-slate-300">Eliminate informal language ("I", "you", "gonna", "cool stuff") for formal 6th Grade academic tone.</p>
+      </div>
+
+      <div class="bg-slate-950 p-6 rounded-2xl border border-slate-800 space-y-4">
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+          <div>
+            <label class="block text-xs font-bold text-rose-400 uppercase mb-2">❌ Informal / Casual Phrase</label>
+            <div id="informal-phrase" class="p-4 bg-slate-900 rounded-xl border border-slate-800 text-rose-300 text-sm font-medium">
+              "You can see that Florida springs are really cool because they have lots of animals."
+            </div>
+          </div>
+          <div>
+            <label class="block text-xs font-bold text-emerald-400 uppercase mb-2">✅ Academic Formal Options</label>
+            <div class="space-y-2" id="formal-options">
+              <!-- Dynamically populated options -->
+            </div>
+          </div>
+        </div>
+        <div id="transformer-feedback" class="text-xs font-semibold p-3 rounded-xl hidden"></div>
+      </div>
+    </section>
+
+    <!-- ==================== MODULE 5: FAST DUAL-SOURCE SIMULATOR ==================== -->
+    <section class="glass-card rounded-3xl p-6 border border-slate-800 space-y-6">
+      <div class="border-b border-slate-800 pb-4">
+        <div class="flex items-center justify-between">
+          <div>
+            <span class="text-xs font-bold text-amber-400 tracking-wider uppercase">Module 5</span>
+            <h3 class="text-2xl font-bold text-white">FAST Dual-Source Passage Simulator</h3>
+            <p class="text-sm text-slate-300">Read the sources, answer the comprehension questions, and build your full essay with live rubric self-scoring.</p>
+          </div>
+          <span class="px-3 py-1 bg-amber-500/10 border border-amber-400/30 text-amber-300 font-bold text-xs rounded-full">
+            Florida Target Topic: Aquifers & Springs
+          </span>
+        </div>
+      </div>
+
+      <!-- READ PASSAGES CONTAINER -->
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
+        <!-- Source 1 -->
+        <div class="bg-slate-950 p-5 rounded-2xl border border-slate-800 space-y-3">
+          <div class="flex items-center justify-between border-b border-slate-800 pb-2">
+            <h4 class="font-bold text-sky-400 text-sm">Source 1: The Invisible Giant - Florida’s Aquifer</h4>
+            <span class="text-xs text-slate-500">Nonfiction Article</span>
+          </div>
+          <div class="text-xs text-slate-300 leading-relaxed space-y-2 max-h-60 overflow-y-auto pr-2">
+            <p>Beneath the sand, pine flatwoods, and bustling cities of Florida lies one of the world's most productive underground water systems: the Floridan Aquifer. Spanning over 100,000 square miles across Florida and parts of neighboring states, this underground reservoir consists of porous limestone rock layers filled with fresh water.</p>
+            <p>Rainfall soaks into the soil and slowly filters downward through layers of sand and limestone in a process called recharge. This natural filtration removes sediments and impurities, producing remarkably clean freshwater that supplies drinking water for over 90% of Florida's residents.</p>
+          </div>
+        </div>
+
+        <!-- Source 2 -->
+        <div class="bg-slate-950 p-5 rounded-2xl border border-slate-800 space-y-3">
+          <div class="flex items-center justify-between border-b border-slate-800 pb-2">
+            <h4 class="font-bold text-amber-400 text-sm">Source 2: Windows to the Deep - Florida Springs</h4>
+            <span class="text-xs text-slate-500">Informational Guide</span>
+          </div>
+          <div class="text-xs text-slate-300 leading-relaxed space-y-2 max-h-60 overflow-y-auto pr-2">
+            <p>Florida is home to more than 1,000 natural freshwater springs, representing the greatest concentration of first-magnitude springs on Earth. Springs occur where pressurized groundwater from the Floridan Aquifer forces its way up to the surface through natural openings in the limestone rock.</p>
+            <p>Because the spring water maintains a constant year-round temperature of approximately 72 degrees Fahrenheit (22°C), these crystal-clear basins serve as vital winter sanctuaries for West Indian manatees seeking warmth when ocean temperatures drop. However, human development and excessive water pumping pose significant threats to these ecosystems.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- COMPREHENSION QUESTIONS -->
+      <div class="bg-slate-950 p-6 rounded-2xl border border-slate-800 space-y-4">
+        <h4 class="font-bold text-slate-200 text-base flex items-center gap-2">
+          <i class="fa-solid fa-list-check text-sky-400"></i> Passage Comprehension Drill (5 Questions)
+        </h4>
+
+        <div id="passage-questions-container" class="space-y-6">
+          <!-- Dynamically populated passage questions -->
+        </div>
+      </div>
+
+      <!-- INTERACTIVE ESSAY BUILDER -->
+      <div class="bg-slate-950 p-6 rounded-2xl border border-slate-800 space-y-6">
+        <div class="border-b border-slate-800 pb-3">
+          <h4 class="font-bold text-white text-lg flex items-center gap-2">
+            <i class="fa-solid fa-pen-to-square text-amber-400"></i> Step-by-Step FAST Expository Essay Builder
+          </h4>
+          <p class="text-xs text-slate-400 mt-1">Prompt: Based on Sources 1 and 2, write an expository essay explaining how Florida's aquifer and springs function together to support human life and wildlife ecosystems.</p>
+        </div>
+
+        <div class="space-y-4">
+          <!-- Step 1: Introduction -->
+          <div>
+            <label class="block text-xs font-bold text-sky-300 uppercase mb-1">Paragraph 1: Introduction (Hook, Context, Thesis)</label>
+            <textarea id="essay-p1" rows="3" class="w-full bg-slate-900 border border-slate-700 rounded-xl p-3 text-xs text-slate-200 focus:border-sky-400 outline-none" placeholder="Start with a hook about Florida's underground water, give context on the Floridan Aquifer, and write your thesis statement..."></textarea>
+          </div>
+
+          <!-- Step 2: Body Paragraph 1 -->
+          <div>
+            <label class="block text-xs font-bold text-amber-300 uppercase mb-1">Paragraph 2: Body Paragraph 1 (Aquifer & Drinking Water)</label>
+            <textarea id="essay-p2" rows="3" class="w-full bg-slate-900 border border-slate-700 rounded-xl p-3 text-xs text-slate-200 focus:border-sky-400 outline-none" placeholder="Write topic sentence. Include evidence from Source 1 with proper citation (e.g. According to Source 1...) and elaborate..."></textarea>
+          </div>
+
+          <!-- Step 3: Body Paragraph 2 -->
+          <div>
+            <label class="block text-xs font-bold text-emerald-300 uppercase mb-1">Paragraph 3: Body Paragraph 2 (Springs & Wildlife Ecosystems)</label>
+            <textarea id="essay-p3" rows="3" class="w-full bg-slate-900 border border-slate-700 rounded-xl p-3 text-xs text-slate-200 focus:border-sky-400 outline-none" placeholder="Write topic sentence. Include evidence from Source 2 regarding 72°F water and manatees. Elaborate on why this matters..."></textarea>
+          </div>
+
+          <!-- Step 4: Conclusion -->
+          <div>
+            <label class="block text-xs font-bold text-indigo-300 uppercase mb-1">Paragraph 4: Conclusion (Restate Thesis & Final Impact)</label>
+            <textarea id="essay-p4" rows="3" class="w-full bg-slate-900 border border-slate-700 rounded-xl p-3 text-xs text-slate-200 focus:border-sky-400 outline-none" placeholder="Restate main ideas without repeating exact words. End with a thoughtful summary..."></textarea>
+          </div>
+        </div>
+
+        <!-- Rubric & Action Buttons -->
+        <div class="pt-4 border-t border-slate-800 flex flex-col sm:flex-row items-center justify-between gap-4">
+          <button onclick="evaluateEssayRubric()" class="w-full sm:w-auto px-6 py-3 bg-gradient-to-r from-amber-500 to-orange-500 hover:from-amber-400 hover:to-orange-400 text-slate-950 font-bold rounded-xl transition shadow-lg shadow-amber-500/20 flex items-center justify-center gap-2">
+            <i class="fa-solid fa-chart-bar"></i> Evaluate Essay with B.E.S.T. Rubric
+          </button>
+          <button onclick="exportEssayText()" class="w-full sm:w-auto px-6 py-3 bg-slate-800 hover:bg-slate-700 text-slate-200 font-semibold rounded-xl transition flex items-center justify-center gap-2">
+            <i class="fa-solid fa-download"></i> Export Essay (.txt)
+          </button>
+        </div>
+
+        <!-- Self-Scoring B.E.S.T. Rubric Output -->
+        <div id="rubric-output" class="hidden p-5 bg-slate-900 border border-amber-500/30 rounded-2xl space-y-3">
+          <h5 class="font-bold text-amber-300 text-sm flex items-center gap-2">
+            <i class="fa-solid fa-square-poll-vertical"></i> Florida B.E.S.T. 4-Point Rubric Assessment
+          </h5>
+          <div class="grid grid-cols-2 md:grid-cols-4 gap-3 text-xs">
+            <div class="p-3 bg-slate-950 rounded-xl border border-slate-800">
+              <span class="text-slate-400 block">Purpose & Structure</span>
+              <span id="rubric-score-1" class="text-base font-bold text-sky-400">0 / 4</span>
+            </div>
+            <div class="p-3 bg-slate-950 rounded-xl border border-slate-800">
+              <span class="text-slate-400 block">Evidence & Citation</span>
+              <span id="rubric-score-2" class="text-base font-bold text-amber-400">0 / 4</span>
+            </div>
+            <div class="p-3 bg-slate-950 rounded-xl border border-slate-800">
+              <span class="text-slate-400 block">Elaboration Quality</span>
+              <span id="rubric-score-3" class="text-base font-bold text-emerald-400">0 / 4</span>
+            </div>
+            <div class="p-3 bg-slate-950 rounded-xl border border-slate-800">
+              <span class="text-slate-400 block">Language & Tone</span>
+              <span id="rubric-score-4" class="text-base font-bold text-indigo-400">0 / 4</span>
+            </div>
+          </div>
+          <div id="rubric-feedback" class="text-xs text-slate-300 leading-relaxed pt-2 border-t border-slate-800"></div>
+        </div>
+
+      </div>
+    </section>
+
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="glass-card border-t border-slate-800 py-6 px-4 text-center text-xs text-slate-500 mt-12">
+    <div class="max-w-7xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-4">
+      <p>Aligned with Florida B.E.S.T. Standards (ELA.6.C.1.4, ELA.6.R.2.2, ELA.6.C.3.1, ELA.6.V.1.1) for Florida FAST ELA Progress Assessments.</p>
+      <p>Self-Contained Single Page Application</p>
+    </div>
+  </footer>
+
+  <!-- SCRIPT LOGIC -->
+  <script>
+    // User Stats State
+    let userXP = 0;
+    let userBadges = [false, false, false, false, false, false];
+
+    // Florida Standards Sprints Data Engine
+    const sprintData = {
+      'A': {
+        title: 'Sprint A: Citation Lead-Ins (ELA.6.C.1.4)',
+        desc: 'Spot floating quotes vs properly introduced evidence citations in 60 seconds!',
+        questions: [
+          {
+            q: '"Florida springs provide freshwater to manatees during winter months."',
+            options: [
+              { text: '❌ Floating Quote (Missing Lead-in)', correct: true },
+              { text: '✅ Valid Integrated Citation', correct: false }
+            ]
+          },
+          {
+            q: 'According to Source 1, "The Floridan Aquifer supplies drinking water for over 90% of residents."',
+            options: [
+              { text: '❌ Floating Quote (Missing Lead-in)', correct: false },
+              { text: '✅ Valid Integrated Citation', correct: true }
+            ]
+          },
+          {
+            q: 'As noted in the article, limestone acts like a natural subterranean sponge.',
+            options: [
+              { text: '❌ Floating Quote (Missing Lead-in)', correct: false },
+              { text: '✅ Valid Paraphrased Citation', correct: true }
+            ]
+          },
+          {
+            q: '"Rainfall slowly filters downward through sand layers."',
+            options: [
+              { text: '❌ Floating Quote (Missing Lead-in)', correct: true },
+              { text: '✅ Valid Integrated Citation', correct: false }
+            ]
+          },
+          {
+            q: 'The author of Source 2 emphasizes that spring waters remain at a constant 72 degrees Fahrenheit.',
+            options: [
+              { text: '❌ Floating Quote (Missing Lead-in)', correct: false },
+              { text: '✅ Valid Integrated Citation', correct: true }
+            ]
+          }
+        ]
+      },
+      'B': {
+        title: 'Sprint B: Academic Tone (ELA.6.C.3.1)',
+        desc: 'Quickly select formal 6th Grade academic phrasing over informal "I/you" speech!',
+        questions: [
+          {
+            q: 'Which sentence maintains proper academic formal tone?',
+            options: [
+              { text: 'You can see that water is super important for us in Florida.', correct: false },
+              { text: 'Water is vital for sustaining Florida ecosystems and human populations.', correct: true }
+            ]
+          },
+          {
+            q: 'Which sentence avoids informal personal pronouns?',
+            options: [
+              { text: 'In my opinion, I think springs are really awesome places.', correct: false },
+              { text: 'Florida springs serve as critical ecological habitats for wildlife.', correct: true }
+            ]
+          },
+          {
+            q: 'Which sentence uses an effective formal transition?',
+            options: [
+              { text: 'Also another thing is that manatees like warm water.', correct: false },
+              { text: 'Furthermore, manatees rely on warm spring water during cold seasons.', correct: true }
+            ]
+          },
+          {
+            q: 'Which sentence avoids conversational slang?',
+            options: [
+              { text: 'Limestone cleans out bad stuff from the underground water.', correct: false },
+              { text: 'Limestone naturally filters sediments and impurities from groundwater.', correct: true }
+            ]
+          }
+        ]
+      },
+      'C': {
+        title: 'Sprint C: Roots & Context Clues (ELA.6.V.1.1)',
+        desc: 'Master Greek & Latin roots (aqua, chron, bio, spec, graph) under pressure!',
+        questions: [
+          {
+            q: 'What does the Latin root "AQUA" mean in words like Aquifer or Aquatic?',
+            options: [
+              { text: 'Water', correct: true },
+              { text: 'Stone / Rock', correct: false },
+              { text: 'Time', correct: false },
+              { text: 'Life', correct: false }
+            ]
+          },
+          {
+            q: 'What does the Greek root "BIO" mean in words like Biosphere or Biology?',
+            options: [
+              { text: 'Earth / Soil', correct: false },
+              { text: 'Life / Living organisms', correct: true },
+              { text: 'Light', correct: false },
+              { text: 'Heat', correct: false }
+            ]
+          },
+          {
+            q: 'What does the root "CHRON" mean in words like Chronological or Synchronize?',
+            options: [
+              { text: 'Distance', correct: false },
+              { text: 'Time / Order', correct: true },
+              { text: 'Writing', correct: false },
+              { text: 'Deep', correct: false }
+            ]
+          },
+          {
+            q: 'What does the root "SPEC" mean in words like Inspect or Spectator?',
+            options: [
+              { text: 'To look or observe', correct: true },
+              { text: 'To carry water', correct: false },
+              { text: 'To measure weight', correct: false },
+              { text: 'To build', correct: false }
+            ]
+          },
+          {
+            q: 'What does the root "GRAPH" mean in words like Paragraph or Geography?',
+            options: [
+              { text: 'To write or draw', correct: true },
+              { text: 'To speak', correct: false },
+              { text: 'To listen', correct: false },
+              { text: 'To measure temperature', correct: false }
+            ]
+          }
+        ]
+      }
+    };
+
+    // Current Sprint Gameplay Variables
+    let currentSprintKey = 'A';
+    let sprintTimer = 60;
+    let sprintInterval = null;
+    let sprintScore = 0;
+    let sprintCorrect = 0;
+    let sprintQuestionIdx = 0;
+    let sprintStreakCount = 0;
+    let sprintHighScore = 0;
+
+    function selectSprint(key) {
+      if (sprintInterval) clearInterval(sprintInterval);
+      currentSprintKey = key;
+      
+      // Update tab UI styling
+      ['A', 'B', 'C'].forEach(k => {
+        const tab = document.getElementById(`sprint-tab-${k}`);
+        if (k === key) {
+          tab.className = "p-4 rounded-2xl border border-sky-500/40 bg-sky-950/40 hover:bg-sky-900/40 transition text-left relative overflow-hidden group active";
+        } else {
+          tab.className = "p-4 rounded-2xl border border-slate-800 bg-slate-900/50 hover:bg-slate-800/60 transition text-left relative overflow-hidden group";
+        }
+      });
+
+      document.getElementById('sprint-title-display').innerText = sprintData[key].title;
+      document.getElementById('sprint-desc-display').innerText = sprintData[key].desc;
+      resetSprintScreen();
+    }
+
+    function resetSprintScreen() {
+      if (sprintInterval) clearInterval(sprintInterval);
+      document.getElementById('sprint-start-screen').classList.remove('hidden');
+      document.getElementById('sprint-start-screen').classList.add('flex');
+      document.getElementById('sprint-active-screen').classList.add('hidden');
+      document.getElementById('sprint-active-screen').classList.remove('flex');
+      document.getElementById('sprint-result-screen').classList.add('hidden');
+      document.getElementById('sprint-result-screen').classList.remove('flex');
+    }
+
+    function startSprint() {
+      sprintTimer = 60;
+      sprintScore = 0;
+      sprintCorrect = 0;
+      sprintQuestionIdx = 0;
+
+      document.getElementById('sprint-start-screen').classList.add('hidden');
+      document.getElementById('sprint-start-screen').classList.remove('flex');
+      document.getElementById('sprint-result-screen').classList.add('hidden');
+      document.getElementById('sprint-result-screen').classList.remove('flex');
+      document.getElementById('sprint-active-screen').classList.remove('hidden');
+      document.getElementById('sprint-active-screen').classList.add('flex');
+
+      document.getElementById('sprint-timer').innerText = `${sprintTimer}s`;
+      document.getElementById('sprint-score').innerText = '0';
+      document.getElementById('sprint-correct-count').innerText = '0';
+
+      loadSprintQuestion();
+
+      sprintInterval = setInterval(() => {
+        sprintTimer--;
+        document.getElementById('sprint-timer').innerText = `${sprintTimer}s`;
+
+        if (sprintTimer <= 10) {
+          document.getElementById('sprint-timer').classList.add('timer-active', 'text-rose-400');
+        }
+
+        if (sprintTimer <= 0) {
+          endSprint();
+        }
+      }, 1000);
+    }
+
+    function loadSprintQuestion() {
+      const qList = sprintData[currentSprintKey].questions;
+      const qObj = qList[sprintQuestionIdx % qList.length];
+
+      document.getElementById('sprint-q-category').innerText = sprintData[currentSprintKey].title;
+      document.getElementById('sprint-question-text').innerText = qObj.q;
+
+      const optBox = document.getElementById('sprint-options-box');
+      optBox.innerHTML = '';
+
+      qObj.options.forEach((opt) => {
+        const btn = document.createElement('button');
+        btn.className = "p-4 bg-slate-900 border border-slate-700 hover:border-sky-400 hover:bg-slate-800 text-slate-100 font-semibold rounded-xl transition text-left text-sm flex items-center justify-between group";
+        btn.innerHTML = `<span>${opt.text}</span> <i class="fa-solid fa-chevron-right text-slate-600 group-hover:text-sky-400 transition-colors"></i>`;
+        btn.onclick = () => handleSprintAnswer(opt.correct);
+        optBox.appendChild(btn);
+      });
+    }
+
+    function handleSprintAnswer(isCorrect) {
+      if (isCorrect) {
+        sprintScore += 10;
+        sprintCorrect++;
+        sprintStreakCount++;
+        addXP(10);
+      } else {
+        sprintStreakCount = 0;
+      }
+
+      document.getElementById('sprint-score').innerText = sprintScore;
+      document.getElementById('sprint-correct-count').innerText = sprintCorrect;
+      document.getElementById('sprint-streak').innerText = `${sprintStreakCount} 🔥`;
+
+      if (sprintScore > sprintHighScore) {
+        sprintHighScore = sprintScore;
+        document.getElementById('sprint-high-score').innerText = sprintHighScore;
+      }
+
+      // Unlock Sprint Badge
+      if (sprintCorrect >= 5) {
+        unlockBadge(1, 'Sprint Champion');
+      }
+
+      sprintQuestionIdx++;
+      loadSprintQuestion();
+    }
+
+    function endSprint() {
+      clearInterval(sprintInterval);
+      document.getElementById('sprint-active-screen').classList.add('hidden');
+      document.getElementById('sprint-active-screen').classList.remove('flex');
+      document.getElementById('sprint-result-screen').classList.remove('hidden');
+      document.getElementById('sprint-result-screen').classList.add('flex');
+
+      document.getElementById('res-score').innerText = sprintScore;
+      document.getElementById('res-correct').innerText = sprintCorrect;
+      document.getElementById('res-xp').innerText = `+${sprintCorrect * 10} XP`;
+    }
+
+    function addXP(amount) {
+      userXP += amount;
+      document.getElementById('user-xp').innerText = userXP;
+
+      if (userXP >= 300) {
+        document.getElementById('user-level').innerText = 'Lvl 4 FAST Master';
+      } else if (userXP >= 150) {
+        document.getElementById('user-level').innerText = 'Lvl 3 Essay Architect';
+      } else if (userXP >= 50) {
+        document.getElementById('user-level').innerText = 'Lvl 2 Benchmark Scholar';
+      }
+    }
+
+    function unlockBadge(index, name) {
+      if (!userBadges[index - 1]) {
+        userBadges[index - 1] = true;
+        const bEl = document.getElementById(`badge-${index}`);
+        bEl.className = "w-10 h-10 rounded-xl bg-amber-500/20 border border-amber-400 flex items-center justify-center text-amber-300 shadow-md pulse-glow transition";
+        
+        const count = userBadges.filter(Boolean).length;
+        document.getElementById('badges-count').innerText = count;
+      }
+    }
+
+    const m1Prompts = [
+      { text: "Write an essay explaining how bees pollinate flowers and help produce food crops.", type: "expository" },
+      { text: "Write an essay convincing school board members to extend recess by 15 minutes.", type: "argumentative" },
+      { text: "Write an essay explaining how Florida aquasystems produce freshwater for state residents.", type: "expository" },
+      { text: "Write an essay arguing why video games should or should not be allowed in school classrooms.", type: "argumentative" }
+    ];
+    let m1Idx = 0;
+
+    function loadM1Prompt() {
+      document.getElementById('m1-prompt-box').innerText = `"${m1Prompts[m1Idx % m1Prompts.length].text}"`;
+    }
+
+    function checkM1Answer(userChoice) {
+      const correctChoice = m1Prompts[m1Idx % m1Prompts.length].type;
+      const feedback = document.getElementById('m1-feedback');
+      feedback.classList.remove('hidden', 'bg-emerald-500/10', 'text-emerald-400', 'bg-rose-500/10', 'text-rose-400');
+
+      if (userChoice === correctChoice) {
+        feedback.classList.add('bg-emerald-500/10', 'text-emerald-400');
+        feedback.innerText = "✅ Correct! Expository prompts ask you to explain or inform using facts, without trying to persuade.";
+        addXP(15);
+        unlockBadge(2, 'Master Classifier');
+      } else {
+        feedback.classList.add('bg-rose-500/10', 'text-rose-400');
+        feedback.innerText = "❌ Not quite. Remember: Expository essays explain/inform. Argumentative essays try to convince the reader.";
+      }
+
+      m1Idx++;
+      setTimeout(loadM1Prompt, 2500);
+    }
+
+    const m2Samples = [
+      { text: '"According to Source 1, Florida springs release over 8 billion gallons of freshwater daily into rivers."', type: 'Evidence' },
+      { text: '"Water conservation is vital because it protects natural habitats and ensures drinking water for future generations."', type: 'Thesis' },
+      { text: '"This shows that without proper protection, these fragile underground ecosystems could dry up completely."', type: 'Elaboration' },
+      { text: '"Imagine turning on your faucet and having no clean water flow out."', type: 'Hook' }
+    ];
+    let m2Idx = 0;
+
+    function loadM2Sample() {
+      document.getElementById('m2-sample-text').innerText = m2Samples[m2Idx % m2Samples.length].text;
+    }
+
+    function checkM2Element(userChoice) {
+      const correctChoice = m2Samples[m2Idx % m2Samples.length].type;
+      const feedback = document.getElementById('m2-feedback');
+      feedback.classList.remove('hidden', 'bg-emerald-500/10', 'text-emerald-400', 'bg-rose-500/10', 'text-rose-400');
+
+      if (userChoice === correctChoice) {
+        feedback.classList.add('bg-emerald-500/10', 'text-emerald-400');
+        feedback.innerText = `✅ Correct! This sentence serves as the ${correctChoice} component.`;
+        addXP(15);
+        unlockBadge(3, 'Burger Architect');
+      } else {
+        feedback.classList.add('bg-rose-500/10', 'text-rose-400');
+        feedback.innerText = `❌ Incorrect. This sample sentence is actually an example of: ${correctChoice}.`;
+      }
+
+      m2Idx++;
+      setTimeout(loadM2Sample, 2500);
+    }
+
+    function testQuoteNinja() {
+      const leadin = document.getElementById('ninja-leadin').value;
+      const resultBox = document.getElementById('ninja-result');
+      const resultText = document.getElementById('ninja-result-text');
+
+      if (!leadin) {
+        alert("Please select a valid lead-in tag first!");
+        return;
+      }
+
+      resultText.innerText = `${leadin} "aquifers store water in underground limestone layers like a giant natural sponge."`;
+      resultBox.classList.remove('hidden');
+      addXP(20);
+      unlockBadge(4, 'Quote Ninja');
+    }
+
+    const formalOptionsData = [
+      { text: "Florida springs offer significant ecological value by providing habitats for diverse wildlife species.", correct: true },
+      { text: "You can clearly see how cool the water is for manatees.", correct: false },
+      { text: "I think people should stop pumping out water because it is bad.", correct: false }
+    ];
+
+    function loadModule4() {
+      const container = document.getElementById('formal-options');
+      container.innerHTML = '';
+      formalOptionsData.forEach((opt) => {
+        const btn = document.createElement('button');
+        btn.className = "w-full p-3 bg-slate-900 border border-slate-700 hover:border-emerald-400 text-left rounded-xl text-xs text-slate-200 transition flex items-center justify-between";
+        btn.innerHTML = `<span>${opt.text}</span> <i class="fa-solid fa-arrow-right text-slate-600"></i>`;
+        btn.onclick = () => {
+          const feedback = document.getElementById('transformer-feedback');
+          feedback.classList.remove('hidden', 'bg-emerald-500/10', 'text-emerald-400', 'bg-rose-500/10', 'text-rose-400');
+          if (opt.correct) {
+            feedback.classList.add('bg-emerald-500/10', 'text-emerald-400');
+            feedback.innerText = "✅ Excellent! This sentence eliminates informal pronouns (you/I) and uses formal academic vocabulary.";
+            addXP(20);
+            unlockBadge(5, 'Tone Master');
+          } else {
+            feedback.classList.add('bg-rose-500/10', 'text-rose-400');
+            feedback.innerText = "❌ Incorrect. Avoid personal pronouns like 'I' or 'you' and casual slang like 'cool' or 'bad'.";
+          }
+        };
+        container.appendChild(btn);
+      });
+    }
+
+    const passageQuestions = [
+      {
+        q: "1. Based on Source 1, what primary function does underground limestone perform in the Floridan Aquifer?",
+        options: ["A) It acts as a natural filtration system for rainfall.", "B) It keeps ocean salt water out of rivers.", "C) It warms groundwater to 72 degrees.", "D) It stores non-renewable energy."],
+        answer: 0
+      },
+      {
+        q: "2. According to Source 2, why do West Indian manatees migrate to Florida springs in the winter?",
+        options: ["A) Springs have greater quantities of ocean food.", "B) Spring waters maintain a constant warm temperature of 72°F.", "C) Aquifers absorb all surrounding river currents.", "D) Manatees prefer shallow soil beds."],
+        answer: 1
+      },
+      {
+        q: "3. What percentage of Florida residents rely on the Floridan Aquifer for drinking water?",
+        options: ["A) Less than 25%", "B) Approximately 50%", "C) Over 90%", "D) 100%"],
+        answer: 2
+      },
+      {
+        q: "4. Which evidence from Source 2 highlights a human threat to natural springs?",
+        options: ["A) Pressurized groundwater.", "B) Constant 72 degree temperatures.", "C) Human development and excessive water pumping.", "D) Natural openings in limestone."],
+        answer: 2
+      },
+      {
+        q: "5. How do both sources connect the topic of underground water to life in Florida?",
+        options: ["A) By showing water supports both human drinking needs and wildlife habitats.", "B) By explaining how to drill wells.", "C) By urging tourists to visit state parks.", "D) By analyzing rainfall patterns across America."],
+        answer: 0
+      }
+    ];
+
+    function renderPassageQuestions() {
+      const container = document.getElementById('passage-questions-container');
+      container.innerHTML = '';
+
+      passageQuestions.forEach((qObj, idx) => {
+        const box = document.createElement('div');
+        box.className = "bg-slate-900 p-4 rounded-xl border border-slate-800 space-y-3";
+        box.innerHTML = `<div class="text-xs font-semibold text-slate-200">${qObj.q}</div>`;
+
+        const optGrid = document.createElement('div');
+        optGrid.className = "grid grid-cols-1 md:grid-cols-2 gap-2";
+
+        qObj.options.forEach((optText, optIdx) => {
+          const btn = document.createElement('button');
+          btn.className = "p-2.5 bg-slate-950 border border-slate-800 hover:border-sky-400 text-left text-xs text-slate-300 rounded-lg transition";
+          btn.innerText = optText;
+          btn.onclick = () => {
+            if (optIdx === qObj.answer) {
+              btn.className = "p-2.5 bg-emerald-500/20 border border-emerald-400 text-left text-xs text-emerald-300 rounded-lg font-bold";
+              addXP(10);
+            } else {
+              btn.className = "p-2.5 bg-rose-500/20 border border-rose-400 text-left text-xs text-rose-300 rounded-lg";
+            }
+          };
+          optGrid.appendChild(btn);
+        });
+
+        box.appendChild(optGrid);
+        container.appendChild(box);
+      });
+    }
+
+    function evaluateEssayRubric() {
+      const p1 = document.getElementById('essay-p1').value;
+      const p2 = document.getElementById('essay-p2').value;
+      const p3 = document.getElementById('essay-p3').value;
+      const p4 = document.getElementById('essay-p4').value;
+
+      let score1 = p1.length > 50 && p4.length > 30 ? 4 : 2;
+      let score2 = (p2.toLowerCase().includes('source') || p3.toLowerCase().includes('source')) && (p2.includes('"') || p3.includes('"')) ? 4 : 2;
+      let score3 = p2.length > 80 && p3.length > 80 ? 4 : 2;
+      let score4 = !p1.toLowerCase().includes(' i ') && !p2.toLowerCase().includes(' you ') ? 4 : 2;
+
+      document.getElementById('rubric-score-1').innerText = `${score1} / 4`;
+      document.getElementById('rubric-score-2').innerText = `${score2} / 4`;
+      document.getElementById('rubric-score-3').innerText = `${score3} / 4`;
+      document.getElementById('rubric-score-4').innerText = `${score4} / 4`;
+
+      const outputBox = document.getElementById('rubric-output');
+      const feedback = document.getElementById('rubric-feedback');
+      outputBox.classList.remove('hidden');
+
+      if (score1 === 4 && score2 === 4 && score3 === 4 && score4 === 4) {
+        feedback.innerText = "🌟 Exemplary Expository Essay! You included clear introduction/conclusions, integrated quotes with lead-in citations, provided solid elaboration, and maintained a formal academic tone.";
+        addXP(50);
+        unlockBadge(6, 'FAST ELA Essayist');
+      } else {
+        feedback.innerText = "💡 Good effort! To increase your FAST score: Ensure you cite 'Source 1' or 'Source 2' inside quotes, avoid informal words like 'you/I', and elaborate on why the evidence matters.";
+      }
+    }
+
+    function exportEssayText() {
+      const p1 = document.getElementById('essay-p1').value;
+      const p2 = document.getElementById('essay-p2').value;
+      const p3 = document.getElementById('essay-p3').value;
+      const p4 = document.getElementById('essay-p4').value;
+
+      const fullEssay = `FLORIDA B.E.S.T. 6TH GRADE EXPOSITORY ESSAY\nTopic: Aquifers and Springs Ecosystems\n\n${p1}\n\n${p2}\n\n${p3}\n\n${p4}`;
+
+      const element = document.createElement('a');
+      const file = new Blob([fullEssay], { type: 'text/plain' });
+      element.href = URL.createObjectURL(file);
+      element.download = "FAST_Expository_Essay.txt";
+      document.body.appendChild(element);
+      element.click();
+      document.body.removeChild(element);
+    }
+
+    window.onload = function() {
+      selectSprint('A');
+      loadM1Prompt();
+      loadM2Sample();
+      loadModule4();
+      renderPassageQuestions();
+    };
+  </script>
+</body>
+</html>
